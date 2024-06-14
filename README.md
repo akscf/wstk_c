@@ -35,7 +35,7 @@ Capabilities: <br>
  - ssl suppors ( todo ) <br>
  - and other functionality, see examples... <br>
 
-### Instalation and build
+### Installation and build
 The library doesn't contain any autotool scripts and so on, all the configurtion options defines in the main Makefile and wstk-core.h (as the preprocessor variables). <br>
 To build it is quite enough to perform: 'make clean all', and then manually copying the library file and headers to the desired location. <br>
 
