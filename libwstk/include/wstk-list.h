@@ -25,8 +25,8 @@ typedef struct {
 wstk_status_t wstk_list_create(wstk_list_t **list);
 wstk_status_t wstk_list_add(wstk_list_t *list, uint32_t pos, void *data, wstk_mem_destructor_h dh);
 
-wstk_status_t wstk_list_clear(wstk_list_t *list, void (*callback)(uint32_t, void *));
-wstk_status_t wstk_list_foreach(wstk_list_t *list, void (*callback)(uint32_t, void *));
+wstk_status_t wstk_list_clear(wstk_list_t *list, void (*callback)(uint32_t, void *, void *), void *udata);
+wstk_status_t wstk_list_foreach(wstk_list_t *list, void (*callback)(uint32_t, void *, void *), void *udata);
 
 wstk_list_find_t wstk_list_find(wstk_list_t *list, bool (*callback)(uint32_t, void *));
 void *wstk_list_get(wstk_list_t *list, uint32_t pos);

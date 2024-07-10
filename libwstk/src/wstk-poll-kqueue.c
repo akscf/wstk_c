@@ -173,7 +173,7 @@ static wstk_status_t poll_deferred_action(wstk_poll_kqueue_t *poll, wstk_socket_
     return status;
 }
 
-static void slist_action_perform_cb(uint32_t pos, void *data) {
+static void slist_action_perform_cb(uint32_t pos, void *data, void *udata) {
     slist_entry_t *entry = (slist_entry_t *)data;
     wstk_status_t st = 0;
 
@@ -436,10 +436,10 @@ wstk_status_t wstk_poll_kqueue_polling(wstk_poll_kqueue_t *poll) {
     poll->fl_polling = false;
 
     if(!wstk_list_is_empty(poll->slist2)) {
-        wstk_list_clear(poll->slist2, slist_action_perform_cb);
+        wstk_list_clear(poll->slist2, slist_action_perform_cb, NULL);
     }
     if(!wstk_list_is_empty(poll->slist1)) {
-        wstk_list_clear(poll->slist1, slist_action_perform_cb);
+        wstk_list_clear(poll->slist1, slist_action_perform_cb, NULL);
     }
 
 #ifdef WSTK_POLL_DEBUG

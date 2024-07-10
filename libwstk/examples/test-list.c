@@ -49,11 +49,11 @@ int main(int argc, char **argv) {
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // example code
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-void list_foreach_cb(uint32_t pos, void *data) {
+void list_foreach_cb(uint32_t pos, void *data, void *udata) {
     WSTK_DBG_PRINT("foreach: idx=[%d] data=[%s]", pos, data);
 }
 
-void list_clear_cb(uint32_t pos, void *data) {
+void list_clear_cb(uint32_t pos, void *data, void *udata) {
     WSTK_DBG_PRINT("clear: idx=[%d] data=[%s]", pos, data);
 }
 
@@ -98,7 +98,7 @@ void start_example(int argc, char **argv) {
     //wstk_list_del(list, 3); // OK
 
     WSTK_DBG_PRINT("---------------------------------------------------");
-    wstk_list_foreach(list, list_foreach_cb);
+    wstk_list_foreach(list, list_foreach_cb, NULL);
 
 
     WSTK_DBG_PRINT("---------------------------------------------------");
@@ -109,7 +109,7 @@ void start_example(int argc, char **argv) {
 
 
     WSTK_DBG_PRINT("---------------------------------------------------");
-    wstk_list_clear(list, list_clear_cb);
+    wstk_list_clear(list, list_clear_cb, NULL);
 
 
     wstk_mem_deref(list);

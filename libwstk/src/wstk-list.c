@@ -271,11 +271,12 @@ void *wstk_list_get(wstk_list_t *list, uint32_t pos) {
  * callback will be called for each item
  *
  * @param list      - the list
- * @param callback  - callback (pos, data)
+ * @param callback  - callback (pos, data, udata)
+ * @param udata     - user date
  *
  * @return success or error
  **/
-wstk_status_t wstk_list_foreach(wstk_list_t *list, void (*callback)(uint32_t, void *)) {
+wstk_status_t wstk_list_foreach(wstk_list_t *list, void (*callback)(uint32_t, void *, void *), void *udata) {
     wstk_list_item_t *target = NULL;
 
     if(!list || !callback) {
@@ -288,7 +289,7 @@ wstk_status_t wstk_list_foreach(wstk_list_t *list, void (*callback)(uint32_t, vo
     target = list->head;
     for(uint32_t i = 0; i < list->size; i++) {
         if(!target) { break; }
-        callback(i, target->data);
+        callback(i, target->data, udata);
         target = target->next;
     }
 
@@ -300,11 +301,12 @@ wstk_status_t wstk_list_foreach(wstk_list_t *list, void (*callback)(uint32_t, vo
  * callback will be called before the data be destroyed
  *
  * @param list      - the list
- * @param callback  - callback (pos, data) or NULL
+ * @param callback  - callback (pos, data, udata) or NULL
+ * @param udata     - user date
  *
  * @return success or error
  **/
-wstk_status_t wstk_list_clear(wstk_list_t *list, void (*callback)(uint32_t, void *)) {
+wstk_status_t wstk_list_clear(wstk_list_t *list, void (*callback)(uint32_t, void *, void *), void *udata) {
     wstk_list_item_t *next = NULL;
     wstk_list_item_t *curr = NULL;
 
@@ -318,7 +320,7 @@ wstk_status_t wstk_list_clear(wstk_list_t *list, void (*callback)(uint32_t, void
     curr = list->head;
     for(uint32_t i = 0; i < list->size; i++) {
         next = curr->next;
-        if(callback) { callback(i, curr->data); }
+        if(callback) { callback(i, curr->data, udata); }
         curr = wstk_mem_deref(curr);
 
         if(!next) { break; }
