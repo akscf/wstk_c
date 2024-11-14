@@ -20,23 +20,23 @@ Actually it should work without any problem on platforms which meet the followin
 
 Capabilities: <br>
  - threads/mutexes/sleeps - available on the whole systems, and contains special tools, such as: queue, worker (see: examples/test-queue.c, examples/test-worker.c)<br>
- - networking, besides the low level access to the sockets and its operations also contains advanced multithreaded tcp/udp servers <br>
- - polling, supports the following methods: select, epoll and kqueue <br>
+ - networking, with a low level access to the sockets and its operations, as well as advanced multithreaded tcp/udp servers <br>
+ - polling, with the following methods: select, epoll and kqueue <br>
  - loadable modules, capable to works with so/dll libraryes <br>
  - includes structures such as: hashtable, linked list (see: examples/test-hashtable.c, exampes/test-list.c)<br>
  - various operations with the strings: concat, replace, and so on (see: wstk-str.h) <br>
  - some useful things was adopted from the libre, such as: mbuf, fmt, pl, regex, and so on <br>
- - has a builtin multi-threaded http server with the expansion of functionality through 'servlets' (see: examples/test-httpd-servlets.c) <br>
+ - has a builtin multi-threaded http server with the ability to expansion through 'servlets' (see: examples/test-httpd-servlets.c) <br>
    servlets: <br>
     - servlet-jsonrpc - provides an easy way to write services (see: examples/test-httpd-jsonrpc.c) <br>
-    - servlet-websock - provides an api use server websockets  (see: examples/test-httpd-websock.c) <br>
-    - servlet-upload  - a simple way to upload files in the server (see: examples/test-httpd-upload.c) <br>
- - on the modern systems (C11 standard) provides api to the atomic operations <br>
- - ssl suppors ( todo ) <br>
+    - servlet-websock - provides an api to use websockets  (see: examples/test-httpd-websock.c) <br>
+    - servlet-upload  - a simple way to upload files into the server (see: examples/test-httpd-upload.c) <br>
+ - on the modern systems (C11 standard) provides api to use atomic operations <br>
+ - ssl suppors ( * todo ) <br>
  - and other functionality, see examples... <br>
 
 ### Installation and build
 The library doesn't contain any autotool scripts and so on, all the configurtion options defines in the main Makefile and wstk-core.h (as the preprocessor variables). <br>
-To build it is quite enough to perform: 'make clean all', and then manually copying the library file and headers to the desired location. <br>
-To build examples: make clean all TNAME={name} (for example: make clean all TNAME=list)<br>
+For build it is quite enough to perform: 'make clean all', and then manually copying the library file and headers to the desired location. <br>
+For build examples: make clean all TNAME={name} (for example: make clean all TNAME=list)<br>
 
