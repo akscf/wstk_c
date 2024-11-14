@@ -1,9 +1,9 @@
 <p>
- A pure C library that provides quite unified api to develop cross-platform applications, net/web services and so on.<br>
- This is kind of combination of some ideas from the libraries such as: apache apr, libre and other, but with my needs and view on how it shout be.<br>
- The main goals is to have an easy way to develop and maintenance applications on the legacy system, such as: OS/2, Win2k3 or Solaris 10, <br>
- but the same time supports the modern systems with the latest gcc/clang and keep the features of the new standards (and use them by needs). <br>
- Actually, for a long time it was just like a set of files which I included in different projects, but recently time has appeared to arrange it as a library. <br>
+ A pure C library that provides quite unified api to develop cross-platform applications, network/web services and so on.<br>
+ This is kind of combination of some ideas from libraries such as: apache apr, libre and other (but with my needs)<br>
+ The main goals is to have an easy way to developing and maintenance applications on the legacy system, such as: OS/2, Win2k3 or Solaris 10, <br>
+ but the same time supports enough modern systems with the latest gcc/clang and keeps the abilities of using these new standards. <br>
+ Actually, for a long time it was just like a set of files which I included in different projects, but recently time has appeared to arranges it as a library. <br>
 </p>
 
 ## Version 1.2.0a (14.06.2024)
