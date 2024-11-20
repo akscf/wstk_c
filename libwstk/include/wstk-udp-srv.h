@@ -26,6 +26,7 @@ bool wstk_udp_srv_is_destroyed(wstk_udp_srv_t *srv);
 
 wstk_status_t wstk_udp_srv_conn_id(wstk_udp_srv_conn_t *conn, uint32_t *id);
 wstk_status_t wstk_udp_srv_conn_peer(wstk_udp_srv_conn_t *conn, wstk_sockaddr_t **peer);
+wstk_status_t wstk_udp_srv_conn_udata(wstk_udp_srv_conn_t *conn, void **udata);
 wstk_status_t wstk_udp_srv_conn_set_udata(wstk_udp_srv_conn_t *conn, void *udata, bool auto_destroy);
 
 wstk_status_t wstk_udp_srv_write(wstk_udp_srv_conn_t *conn, wstk_mbuf_t *mbuf);

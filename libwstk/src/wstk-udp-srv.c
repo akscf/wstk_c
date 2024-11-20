@@ -515,6 +515,26 @@ wstk_status_t wstk_udp_srv_conn_set_udata(wstk_udp_srv_conn_t *conn, void *udata
 }
 
 /**
+ * Get user data
+ *
+ * @param srv           - the server
+ * @param udata         - some data
+ *
+ * @return sucesss or some error
+ **/
+wstk_status_t wstk_udp_srv_conn_udata(wstk_udp_srv_conn_t *conn, void **udata) {
+    if(!conn) {
+        return WSTK_STATUS_INVALID_PARAM;
+    }
+    if(conn->fl_destroyed) {
+        return WSTK_STATUS_DESTROYED;
+    }
+
+    *udata = conn->udata;
+    return WSTK_STATUS_SUCCESS;
+}
+
+/**
  * Write message to the peer
  *
  * @param srv   - the server
